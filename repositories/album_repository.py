@@ -2,8 +2,6 @@ from db.run_sql import run_sql
 import repositories.artist_repository as artist_repository
 from models.album import Album
 
-# Wut Wut Wut Wut
-
 def save(album):
     sql = "INSERT INTO albums (title, artist_id, genre) VALUES (%s, %s, %s) RETURNING *"
     values = [album.title, album.artist.id, album.genre]
@@ -29,7 +27,7 @@ def select_all():
 
 def select(id):
     album = None
-    sql = "SELECT * FROM album WHERE id = %s"
+    sql = "SELECT * FROM albums WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
 
